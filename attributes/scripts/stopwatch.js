@@ -1,51 +1,58 @@
 console.log('stopwacth-loaded');
 
-function stopwacth(display) {
-    var time = 0;
-    var interval;
-    var offset;
+function stopwacth(display, getname, hetid) {
+    let time = 0;
+    let userid = 1;
+    let opdrid = hetid;
+    let interval;
+    let offset;
     this.isCounting = false;
-
+    console.log("new timer made for: " + getname);
 
     function update(){
         if (this.isCounting == true){
             time += timeCalculator();
-            var formattedTime = timeformat(time);
+            let formattedTime = timeformat(time);
             display.textContent = formattedTime;
         }
 
     };
     function timeCalculator(){
-        var now = Date.now();
-        var timePassed = now - offset;
+        let now = Date.now();
+        let timePassed = now - offset;
         offset = now;
         return timePassed;
     }
 
 
     function timeformat(timeInMs){
-        var time = new Date(timeInMs);
+        let time = new Date(timeInMs);
         // zet de miliseconden om in munten en seconden convert to string om lengte te kunnen meten
-        var minutes = time.getMinutes().toString();
-        var seconds = time.getUTCSeconds().toString();
-        var milliseconds = time.getMilliseconds().toString();
+        let houers = time.getUTCHours().toString();
+        let minutes = time.getMinutes().toString();
+        let seconds = time.getUTCSeconds().toString();
+        let milliseconds = time.getMilliseconds().toString();
+
+        if (houers.length < 2){
+            houers = '0' + houers;
+        }
 
         if (minutes.length < 2){
             minutes = '0' + minutes; 
         }
+        console.log(minutes.length);
 
         if (seconds.length < 2){
             seconds = '0' + seconds; 
         }
 
-        while (milliseconds.length < 3){
-            milliseconds = '0' +milliseconds;
-        }
-
-        return minutes + ' : ' + seconds + ' . ' + milliseconds;
+        return houers + ' : ' + minutes + ' : ' + seconds;
     }
 
-  
+    function lasttime(){
+        let formattedTime = timeformat(time);
+            return formattedTime;
+        }
 
 
     this.start = function(){
@@ -68,5 +75,28 @@ function stopwacth(display) {
         console.log('Watch is reseting!');
         time = 0;
     };
-}
+
+    this.save = function(){
+        console.log('Watch is saved!');
+        let timep = lasttime();
+        console.log(timep);
+        console.log(getname);
+        let task = document.getElementById("taskd").innerHTML;
+        let params = "time="+ timep + "&name="+ getname + "&disk="+ task + "&userid="+ userid + "&opdrachtgeverid="+ opdrid;
+        console.log(params);
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'process.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  
+        xhr.onload = function(){
+          console.log(this.responseText);
+        }
+  
+        xhr.send(params);
+        this.reset();
+      };
+};
+
+
+
 

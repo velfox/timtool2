@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,87 +8,68 @@
     <link rel="stylesheet" href="attributes/css/reset.css">
     <link rel="stylesheet" href="attributes/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto|Staatliches" rel="stylesheet">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <title>⏱ 𝕿𝖎𝖒𝖊𝕿𝖔𝖔𝖑 🦊</title>
+
 </head>
+
 <body>
     <section id="s1" class="container">
         Select acound
     </section>
+
+    <!-- start setup timer -->
     <section id="s2" class="container">
-    <?php
-    require_once "./attributes/includes/db.php";
+        <?php require_once "./attributes/includes/selectuser.php"; ?>
+        <div class="vhc">
+            <section id="selecteer-opdrachtgever">
+                <div class="title-box">
+                    <p class="p1"> selecteer opdrachtgever </p>
+                </div>
+                <section class="opdrachtgevers">
+                    <?php require_once "./attributes/includes/selectopdrachtgever.php"; ?>
+                </section>
+            </section>
 
-    $sql = "SELECT * FROM users WHERE username = 'tim' ";
-    $results = $db->query($sql);
-
-    //get user id
-    if ($results->num_rows > 0) {
-        // output data of each row
-        while($result = $results->fetch_assoc()) {
-    
-            $id = $result["id"];
-
-        }} else {
-            echo "user id not found";
-        }
-
-    //select opdracht gevers ids die bij klant horen uit koppel tabel
-    $sql = "SELECT * FROM opdrachtgevers_users WHERE user_id = $id ";
-    $results = $db->query($sql);
-
-    if ($results->num_rows > 0) {
-        // output data of each row
-        while($result = $results->fetch_assoc()) {
-                
-                $id = $result["opdrachgever_id"];
-                //select opdracht gevers op id's die bij persoon horen
-                $sql = "SELECT * FROM opdrachtgevers WHERE id = $id ";
-                $results2 = $db->query($sql);
-            
-                if ($results2->num_rows > 0) {
-                    // output data of each row
-                    while($result2 = $results2->fetch_assoc()) {
-                        $name = $result2["name"];
-                        $img = $result2["img"];
-                        $beschijfing = $result2["beschijfing"];
-                        $idopdr = $result2["id"];
-
-                        ?>
-                        <section class="opdrachtgever" id="<?= $idopdr ?>">
-                            <section class="opdr-name"> <?= $name ?> </section>
-                            <section class="opdr-beschijfing"> <?= $beschijfing ?> </section>
-                        </section> <?php
-                    }
-                } else {
-                        echo "opdrachgever result not found";
-                    }
-
-            }
-        } else {
-                echo "opdrachtgever id not found";
-            }
-
-
-
-        
-
-    // $sql = "SELECT * FROM users WHERE username = 'tim' ";
-    // $result = $db->query($sql);
-
-    ?>
-        select klant
+            <section id="selecteer-beschijfing">
+                <div class="title-box">
+                    <p class="p1"> Beschrijf de taak en druk op enter </p>
+                </div>
+                <form id="taskfieldform" onsubmit="event.preventDefault();">
+                    <input id="taskfield" type="text" name="task" placeholder="Beschijf hier de taak">
+                </form>
+            </section>
+        </div>
     </section>
+
+    <!-- start timer section -->
     <section id="s3" class="container">
-        <section class="stopwatch timerbox">
-        <section class="casus-name"> logo here! </section>
-        <section id="timer"> 00 : 00 . 000 </section>
-        <section class="stopwatch-buttons">
-            <button id="toggel" class="mb"> Start </button>
-            <button id="reset-timer"> reset </button>
-        </section>
+        <div class="vhc2">
+            <section id="timerbox" class="stopwatch timerbox">
+                <section class="row">
+                    <section id="timerlogo" class="casus-name"> </section>
+                    <section id="timer"> 00 : 00 : 00 </section>
+                    <section class="stopwatch-buttons">
+                        <button id="toggel" class="mb"> Start </button>
+                        <button id="reset-timer"> reset </button>
+                    </section>
+                </section>
+                <section class="row">
+                    <section id="task" class="casus-disk">
+                        <p id="opdrachtgever"> test </p>
+                        <p id="taskd"> bescrijfing opdracht hier! </p>
+                    </section>
+                    <div class="saveplaceholder">
+                        <button id="save-timer"> save </button>
+                    </div>
+                </section>
+            </section>
+        </div>
     </section>
 
     <script src="/attributes/scripts/stopwatch.js"></script>
     <script src="/attributes/scripts/global.js"></script>
+
 </body>
+
 </html>

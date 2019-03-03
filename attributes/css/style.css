@@ -1,3 +1,11 @@
+#s1{
+    display: none;
+}
+
+#s3{
+    display: none;
+}
+
 .timers {
     font-family: 'Pacifico', cursive;
 }
@@ -10,17 +18,15 @@
   text-align: center;
   width: fit-content;
   margin: 0px 10px;
-  box-shadow: 1px 2px #888888;
+  box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
 }
 
 .casus-name{
     background-color: #ECEFF1;
     border-radius: 5px;
     padding: 20px; 
-    font-size: 1em;  
     text-align: center;
     width: fit-content;
-    box-shadow: 1px 2px #888888;
 }
 
 button{
@@ -39,14 +45,23 @@ button{
     margin-bottom: 10px;
 }
 
+#timerlogo{
+    background-color: aquamarine;
+    background-position: center;
+    background-repeat: none;
+    background-size: contain;
+    width: 80px;
+}
+
 .stopwatch{
     display: flex;
-    background-color: #BDBDBD;
+    flex-direction: column;
+    background-color: rgb(255, 218, 98);
     border-radius: 5px;
     padding: 20px; 
     text-align: center;
     width: fit-content;
-    box-shadow: 1px 2px #888888;
+    box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
 }
 
 .stopwatch-buttons{
@@ -55,7 +70,7 @@ button{
 }
 
 .container{
-    background-color: #FF7043;
+    background-color: #B0BEC5;
     height: 100vh;
     width: 100%;
     font-family: 'Roboto', sans-serif;
@@ -63,7 +78,174 @@ button{
 
 .timerbox{
     margin: 0 auto;
+    width: fit-content;
+    background-image: url('../img/coin.gif');
+    transition: all 1s;
+    background-position: center;
+}
+
+.opdrachtgever{
+    background-color: #BDBDBD;
+    font-size: 12pt;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.5s;
+    box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
+}
+
+.opdrachtgever:hover{
+    background-color: #FBC02D;
+    padding: 10px;
+    box-shadow: 4px 4px #888888;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.29);
+}
+
+.opdr-name{
+    background-color: #37474F;
+    border-radius: 4px;
+    padding: 5px 0px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.opdr-disck2{
+    background-color: #607D8B;
+    border-radius: 4px;
+    padding: 5px 0px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.opdr-beschijfing{
+    background-color: #888888;
+    border-radius: 4px;
+    margin-top: 5px;
+    height: 60%;
+    background-image: url(/attributes/img/logo/velfox.PNG);
+    background-position: center;
+    background-size: contain;
+}
+
+
+.opdrachtgevers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: fit-content;
+    margin-bottom: 10px;
+}
+
+.casus-disk{
+    background-color: #607D8B;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 1em;
+    text-align: center;
+    width: fit-content;
+    width: 73%;
+    display: flex;
+    flex-direction: row;
+    color:#fff;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .saveplaceholder{
+    padding: 10px 0px 0px 10px;
+  }
+
+  #task-discription{
+      padding: 10px;
+      background-color: #BDBDBD;
+      font-size: 12pt;
+      width: 90%;
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+      transition: all 1s;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: auto;
+      display: none;
+  }
+
+  #selecteer-opdrachtgever{
+    background-color: rgb(255, 218, 98);
+    padding: 0px 30px 30px 30px;
+  }
+
+  #selecteer-beschijfing{
+    background-color: rgb(255, 218, 98);
+    padding-bottom: 30px;
+    padding: 0px 30px 30px 30px;
+    display: none;
+  }
+
+  .discription{
+    padding: 10px;
+    background-color: #BDBDBD;
+    font-size: 12pt;
+    width: 90%;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 1s;  
+    margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: fit-content;
+  }
+
+  
+
+  #opdrachtgever{
+      background-color: #37474F;
+      padding: 0px 2px;
+      margin-right: 5px; 
+      border-radius: 4px;
+  }
+
+  #taskd{
+    overflow: auto;
+    max-width: 340px;
+  }
+
+  .title-box{
+      background-color: #FBC02D;
+      text-align: center;
+      font-family: 'Lobster';
+      font-size: 24pt;
+      margin-bottom: 30px;
+  }
+
+  .p1{
+    background-color: #546E7A;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    padding: 20px
+}
+
+.vhc {
+    padding-top: 30px;
+}
+
+.vhc2 {
+    padding-top: 30vh;
 }
