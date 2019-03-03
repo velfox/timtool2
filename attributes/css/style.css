@@ -1,5 +1,5 @@
 #s1{
-    display: none;
+    display: flex;
 }
 
 #s3{
@@ -248,4 +248,131 @@ input[type=text], select {
 
 .vhc2 {
     padding-top: 30vh;
+}
+
+/* s1 layout */
+
+table {
+    width: 100%;
+    margin: 20px auto;
+    table-layout: auto;
+  }
+  
+  .fixed {
+    table-layout: fixed;
+  }
+  
+  table,
+  td,
+  th {
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    border: solid 1px;
+    text-align: center;
+  }
+  
+  th{
+      background-color: #37474F;
+      color: #fff;
+  }
+
+  table tr:nth-child(odd) td{
+    background-color:#78909C;
+}
+table tr:nth-child(even) td{
+    background-color:#607D8B;
+}
+
+#acound{
+    height: 100%;
+    width: 50%;
+}
+#uren{
+    height: 100%;
+    width: 50%;
+}
+
+.uren-tabel{
+    padding: 30px;
+}
+
+#acound{
+    padding: 0px 30px;
+}
+
+.uren-options{
+    background-color: rgb(255, 218, 98);
+    height: 40px;
+    width: 100%;
+}
+
+#menu-uren{
+    background-color: rgb(255, 218, 98);
+    padding: 10px;
+    width: 100%;
+    display: flex;
+}
+
+
+#acound-box{
+    background-color: rgb(255, 218, 98);
+    height: 100%;
+}
+
+.acound-box{
+    padding: 10px 0px;
+    background-color: #FBC02D;
+    width: 100%;
+}
+
+.user-img{
+    background-color: #78909C;
+    width: 150px;
+    height: 150px;
+    margin: 0px auto;
+    border-radius: 4px;
+    box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
+}
+
+.username{
+    background-color: #78909C;
+    width: 150px;
+    padding: 10px 0px;
+    margin: 10px auto;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
+    
+    font-family: 'Lobster';
+}
+
+.settings-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.setting-box{
+    background-color: #78909C;
+    width: 150px;
+    padding: 10px 0px;
+    margin: 10px auto;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
+}
+
+.big{
+    height: 100px;
+    background-color: #37474F;
+    color: #fff;
+
+}
+
+.big-icon{
+    font-size: 30pt;
+    margin: 15px 0px;
 }

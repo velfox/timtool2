@@ -15,6 +15,11 @@ for(i = 0 ; i < opdrgAntaal; i++){
     console.log(opdrg);
 }
 
+let n = 0;
+let setup = 0;
+
+
+
 function loadTimer(){
     let hetid = this.id;
 
@@ -23,21 +28,24 @@ function loadTimer(){
     
     //verander timer afbeelding
     changeTimerImg(hetid);
-    
+    n = n + 1;
+    let watch = [];
     // maak een nieuwe timer aan
-    let watch = new stopwacth(timer, getname,hetid);
-
+    watch[n] = new stopwacth(timer, getname, hetid);
+    console.log(n);
     //toon de volgende stap voor het opgeven van de taak beschijfing
     nextStapTask();
 
     //maak buttons van stopwatch klikbaar
+
+    setup = 1;
     toggelBtn.addEventListener('click', function(){
-        if (watch.isCounting){
-            watch.stop();
+        if (watch[n].isCounting){
+            watch[n].stop();
             toggelBtn.textContent = 'Start';
             document.getElementById("timerbox").style.backgroundImage = "url('../attributes/img/loding.gif')";
         } else {
-            watch.start();
+            watch[n].start();
             toggelBtn.textContent = 'Pauze';
             document.getElementById("timerbox").style.backgroundImage = "url('../attributes/img/coins.gif ')";
         }
@@ -46,17 +54,18 @@ function loadTimer(){
 
     resetBtn.addEventListener('click' , function(){
         //reset de tijd van de timer
-        watch.reset();
+        watch[n].reset();
         timer.textContent = '00 : 00 : 00';
     });
     
     saveBtn.addEventListener('click' , function(){
         console.log('click');
         //save de besteede tijd aan de taak in de database
-        watch.save();
+        watch[n].save();
     
     });
   }
+
 
   //verander timer afbeelding
   function changeTimerImg(hetid){
@@ -98,3 +107,49 @@ function loadTimer(){
   }
 
   document.getElementById("taskfield").addEventListener("change", showTaskDiscription);
+
+
+//   window.onload = function(){
+//     uren = document.getElementById("uren-tabel");
+//     aside.innerHTML="<img src='loadingImage.gif'>";
+//     if(XMLHttpRequest) var x = new XMLHttpRequest();
+//     else var x = new ActiveXObject("Microsoft.XMLHTTP");
+//     x.open("GET", "other_content_1.php", true);
+//     x.send();
+//     x.onreadystatechange = function(){
+//         if(x.readyState == 4){
+//             if(x.status == 200) aside.innerHTML = x.responseText;
+//             else aside.innerHTML = "Error loading document";
+//             }
+//         }
+//     }
+        let harlaadtabel = document.getElementById('herlaadtabel');
+        harlaadtabel.addEventListener('click', loadingtabel);
+
+        function loadingtabel(){
+            console.log('ladan landcdnkdf');
+            herlaadTabel(1,3);
+        }
+
+        function herlaadTabel(userid, opdrid){
+        console.log('herladen tabel');
+        let uren = document.getElementById("uren-tabel");
+        let params = "userid="+ userid + "&opdrid="+ opdrid;
+        
+        console.log(params);
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'process2.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  
+        xhr.onload = function(){
+          console.log(this.responseText);
+          if(xhr.status == 200){
+            uren.innerHTML = this.responseText;
+          } else {
+           aside.innerHTML = "Error loading document";
+        }
+    }
+  
+        xhr.send(params);
+
+      };

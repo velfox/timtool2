@@ -14,8 +14,31 @@
 </head>
 
 <body>
+                         
     <section id="s1" class="container">
-        Select acound
+        <section id="acound">
+            <section id="acound-box">
+                <section class="acound-box"> 
+                    <section class="user-img"></section>
+                    <section class="username"> 😃 Tim </section>
+                </section>
+                <section class="settings-box">        
+                    <section class="setting-box"> <p class="big-icon">⚙️</p>Acount instellingen </section>
+                    <section class="setting-box big"> <p class="big-icon">➕ ⏱ </p> Nieuwe Timer </section>
+                    <section class="setting-box"> <p class="big-icon"> 💼 </p>  Beheer opdrachtgevers </section>
+                </section>
+            </section>
+        </section>
+        <section id="uren">
+            <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> ⟲ Herladen </button> <button id="herlaadtabel"> 💾 save als PDF </button> 
+            <button id="herlaadtabel"> < </button> <div class="username" id="maand"> Maart 2019 </div> <button id="herlaadtabel"> > </button>  </section>
+            <section id="uren-tabel" class="uren-tabel">
+                <?php require_once "./attributes/includes/uren.php"; 
+                $urentotaal = (RekenUrenUit("uren", "$totaal")); ?>
+                </section>
+                <table> <tr> <th> Urentotaal </th> </tr> <tr> <td> <?= $totaal ?> :   <?= $urentotaal ?> </td> </tr> </table>
+            </section>
+        </section>
     </section>
 
     <!-- start setup timer -->

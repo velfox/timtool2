@@ -16,12 +16,14 @@
     } else {
         echo "user id not found";
     }
+
                             $bestede_tijd_totaal = 0;
-                            $sql = "SELECT * FROM besteding WHERE user_id = $id AND opdrachtgever_id = 3";
+                            $sql = "SELECT * FROM besteding WHERE user_id = $id";
                             $results2 = $db->query($sql);
                             $totaal = "00:00:00";
                             if ($results2->num_rows > 0) {  ?> 
                                 <section class="uren">
+                                <table>
                                 <TR> <TH>Datum</TH> <TH>Opdrachtgever</TH> <TH>Taak</TH> <TH>Tijd</TH> </TR> <?php
                                 while ($urendata = $results2->fetch_assoc()) {
                                         $iduren = $urendata["id"];
@@ -41,9 +43,8 @@
                                    
                                 <?php }
                                     
-                                    
+                                    ?>  </table><?php
                                     $urentotaal = (RekenUrenUit("uren", "$totaal"));
-                                    echo("uren totaal is $urentotaal");
 
                             } else {
                                 echo "Geen uren voor deze opdracht gever gevonden";
