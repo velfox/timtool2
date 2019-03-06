@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // Connect to a database
 $conn = mysqli_connect('localhost', 'root', '', 'timetool');
@@ -11,7 +12,7 @@ if(isset($_POST['name'])){
   $tijd = mysqli_real_escape_string($conn, $_POST['time']);
   $ntijd = preg_replace('/\s+/', '', $tijd);
   $disk = mysqli_real_escape_string($conn, $_POST['disk']);
-  $userid = mysqli_real_escape_string($conn, $_POST['userid']);
+  $userid = mysqli_real_escape_string($conn, $_SESSION["id"]);
   $opdrachtgeverid = mysqli_real_escape_string($conn, $_POST['opdrachtgeverid']);
   $query = "INSERT INTO besteding(nameopd, bestede_tijd, discription, user_id, opdrachtgever_id) VALUES('$name', '$ntijd', '$disk', '$userid' ,'$opdrachtgeverid')";
 

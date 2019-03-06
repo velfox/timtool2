@@ -35,7 +35,7 @@
                                     ?>
 
                                         <TR> 
-                                            <TD><?= $datum ?></TD> 
+                                            <TD><?= $datum ?> test</TD> 
                                             <TD><?= $opdrachtgever_id ?></TD> 
                                             <TD><?= $uren_beschrijfing ?></TD> 
                                             <TD><?= $bestede_tijd ?></TD>

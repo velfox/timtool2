@@ -13,14 +13,18 @@
 
 </head>
 
-<body>
-                         
+<?php require_once "./attributes/includes/loginchek.php"; ?>
+
+<body>                   
     <section id="s1" class="container">
         <section id="acound">
             <section id="acound-box">
                 <section class="acound-box"> 
                     <section class="user-img"></section>
                     <section class="username"> 😃 Tim </section>
+                    <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
+                    <input type="submit" name="loguit" value="loguit"/>
+                    </form>
                 </section>
                 <section class="settings-box">        
                     <section class="setting-box"> <p class="big-icon">⚙️</p>Acount instellingen </section>
@@ -29,14 +33,32 @@
                 </section>
             </section>
         </section>
-        <section id="uren">
-            <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> ⟲ Herladen </button> <button id="herlaadtabel"> 💾 save als PDF </button> 
-            <button id="herlaadtabel"> < </button> <div class="username" id="maand"> Maart 2019 </div> <button id="herlaadtabel"> > </button>  </section>
+        <!-- <section id="uren">
+            <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> ⟲ Herladen </button> <button button class="bv" id="herlaadtabel"> 💾 save als PDF </button> 
+            <button button class="bv" id="herlaadtabel"> < </button> <div class="maand" id="maand"> Maart 2019 </div> <button button class="bv" id="herlaadtabel"> > </button>  </section>
             <section id="uren-tabel" class="uren-tabel">
                 <?php require_once "./attributes/includes/uren.php"; 
                 $urentotaal = (RekenUrenUit("uren", "$totaal")); ?>
                 </section>
                 <table> <tr> <th> Urentotaal </th> </tr> <tr> <td> <?= $totaal ?> :   <?= $urentotaal ?> </td> </tr> </table>
+            </section>
+        </section> -->
+        <section id="uren">
+            <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> toevoegen </button> <div class="maand" id="maand"> 💼 opdrachtgevers </div>  <button button class="bv" id="herlaadtabel"> verweideren </button> 
+           </section>   
+                <section class="loginform">
+                    <form id="addopdrg" onsubmit="event.preventDefault();" enctype="multipart/form-data">
+                            <label for="uname"><b> opdrachtgever naam </b></label>
+                            <input type="text" id="opdr-name" placeholder="opdrachtgever naam " name="gebruikersnaam" required>
+
+                            <label for="psw"><b> berschijfing </b></label>
+                            <input type="text" id="opdr-berschijfing" placeholder="berschijfing" name="wachtwoord" required>
+                                
+                            <label for="psw"><b> logo </b></label>
+                            <input type="file" name="Logo Opdrachtgever" id="fileToUpload">
+                            <input type="submit" name="submit" value="Toevoegen"/>
+                    </form>
+                </section>
             </section>
         </section>
     </section>

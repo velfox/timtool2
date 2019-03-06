@@ -1,6 +1,10 @@
 <?php   
 //select opdracht gevers ids die bij klant horen uit koppel tabel
-    $sql = "SELECT * FROM opdrachtgevers_users WHERE user_id = $id ";
+    if (isset($_SESSION["user"])) { 
+        $userid = $_SESSION["id"];
+    }
+
+    $sql = "SELECT * FROM opdrachtgevers_users WHERE user_id = $userid";
     $results = $db->query($sql);
 
     if ($results->num_rows > 0) {
@@ -9,7 +13,7 @@
 
             $id = $result["opdrachgever_id"];
             //select opdracht gevers op id's die bij persoon horen
-            $sql = "SELECT * FROM opdrachtgevers WHERE id = $id ";
+            $sql = "SELECT * FROM opdrachtgevers WHERE id = $userid";
             $results2 = $db->query($sql);
 
 

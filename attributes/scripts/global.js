@@ -128,13 +128,13 @@ function loadTimer(){
 
         function loadingtabel(){
             console.log('ladan landcdnkdf');
-            herlaadTabel(1,3);
+            herlaadTabel(3);
         }
 
-        function herlaadTabel(userid, opdrid){
+        function herlaadTabel(opdrid){
         console.log('herladen tabel');
         let uren = document.getElementById("uren-tabel");
-        let params = "userid="+ userid + "&opdrid="+ opdrid;
+        let params = "&opdrid="+ opdrid;
         
         console.log(params);
         let xhr = new XMLHttpRequest();
@@ -153,3 +153,20 @@ function loadTimer(){
         xhr.send(params);
 
       };
+
+      function addOpdrachtgever() {
+
+            console.log('trying to add');
+            var form = document.querySelector('form');
+            var data = new FormData(form);
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', 'process3.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      
+            xhr.onload = function(){
+              console.log(this.responseText);
+            }
+      
+            xhr.send(data);
+            this.reset();
+      }

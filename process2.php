@@ -1,28 +1,18 @@
 <?php
-  if(isset($_POST['userid'])){
+session_start();
+
+  if(isset($_SESSION["user"])){
     require_once "./attributes/includes/db.php";
     require_once "./attributes/includes/functions.php";
 
-    $userid = mysqli_real_escape_string($db, $_POST['userid']);
     $opdrid = mysqli_real_escape_string($db, $_POST['opdrid']);
 
-    $sql = "SELECT * FROM users WHERE username = 'tim' ";
-    $results = $db->query($sql);
-
-    //get user id
-    if ($results->num_rows > 0) {
-        // output data of each row
-        while ($result = $results->fetch_assoc()) {
-
-            $id = $result["id"];
-
-        }
-    } else {
-        echo "user id not found";
+    if (isset($_SESSION["user"])) { 
+        $userid = $_SESSION["id"];
     }
 
     $bestede_tijd_totaal = 0;
-    $sql = "SELECT * FROM besteding WHERE user_id = $id AND opdrachtgever_id = 3";
+    $sql = "SELECT * FROM besteding WHERE user_id = $userid AND opdrachtgever_id = 3";
     $results2 = $db->query($sql);
     $totaal = "00:00:00";
     if ($results2->num_rows > 0) {  ?> 

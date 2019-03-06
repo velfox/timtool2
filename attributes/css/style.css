@@ -38,7 +38,11 @@ button{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 5px;    
+    border-radius: 5px
+}
+
+.bv{
+    margin-left: 10px;
 }
 
 .mb{
@@ -313,7 +317,6 @@ table tr:nth-child(even) td{
 #menu-uren{
     background-color: rgb(255, 218, 98);
     padding: 10px;
-    width: 100%;
     display: flex;
 }
 
@@ -346,7 +349,6 @@ table tr:nth-child(even) td{
     border-radius: 4px;
     text-align: center;
     box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
-    
     font-family: 'Lobster';
 }
 
@@ -375,4 +377,21 @@ table tr:nth-child(even) td{
 .big-icon{
     font-size: 30pt;
     margin: 15px 0px;
+}
+
+.maand{
+    background-color: #5F7C8A;
+    width: 150px;
+    padding: 10px 0px;
+    margin: 10px 0px 10px 10px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
+    font-family: 'Lobster';
+    color: #fff;
+}
+
+.logo-timetool{
+    height: 400px;
+    margin: 0 auto;
 }

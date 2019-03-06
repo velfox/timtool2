@@ -82,7 +82,7 @@ function stopwacth(display, getname, hetid) {
         console.log(timep);
         console.log(getname);
         let task = document.getElementById("taskd").innerHTML;
-        let params = "time="+ timep + "&name="+ getname + "&disk="+ task + "&userid="+ userid + "&opdrachtgeverid="+ opdrid;
+        let params = "time="+ timep + "&name="+ getname + "&disk="+ task + "&opdrachtgeverid="+ opdrid;
         console.log(params);
         let xhr = new XMLHttpRequest();
         xhr.open('POST', 'process.php', true);
@@ -94,6 +94,8 @@ function stopwacth(display, getname, hetid) {
   
         xhr.send(params);
         this.reset();
+        loadingtabel();
+        herlaadTabel(opdrid);
       };
 };
 
