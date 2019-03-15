@@ -16,7 +16,7 @@
     <section id="s1" class="container">
         <section id="acound">
             <section id="acound-box">
-            <h1> login page </h1>
+            <h1 class="login-title"> login page </h1>
                 <section class="acound-box"> 
                 <?php require_once "./attributes/includes/login.php"; ?>
                 </section>

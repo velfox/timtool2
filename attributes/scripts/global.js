@@ -157,7 +157,7 @@ function loadTimer(){
       function addOpdrachtgever() {
 
             console.log('trying to add');
-            var form = document.querySelector('form');
+            var form = document.querySelector('#addopdrg');
             var data = new FormData(form);
             let xhr = new XMLHttpRequest();
             xhr.open('POST', 'process3.php', true);

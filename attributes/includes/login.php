@@ -58,13 +58,11 @@ if(isset($_SESSION['user'])){
 
  <section class="loginform">
     <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
-        <label for="uname"><b> gebruikersnaam </b></label>
-        <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
+        <input class="login-form-username" type="text" placeholder="Enter Username" name="gebruikersnaam" required>
 
-        <label for="psw"><b> wachtwoord </b></label>
         <input type="password" placeholder="Enter Password" name="wachtwoord" required>
 
-        <input type="submit" name="submit" value="Save"/>
+        <input class="loginbutton" type="submit" name="submit" value="Login"/>
     </div>
   </form>
  </section>

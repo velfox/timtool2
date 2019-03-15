@@ -170,6 +170,30 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
   }
+
+  input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-image: url(/attributes/img/giphy.gif);
+    background-position: center;
+    background-size: cover;
+    border-style: solid;
+    border-color: green;
+    color: #fff;
+    font-size: 30px;
+  }
+
+  .login-form-username{
+    border-style: solid;
+    border-color: green;
+    color: #FABF32;
+    font-size: 30px;
+  }
   
   .saveplaceholder{
     padding: 10px 0px 0px 10px;
@@ -324,12 +348,31 @@ table tr:nth-child(even) td{
 #acound-box{
     background-color: rgb(255, 218, 98);
     height: 100%;
+    text-align: center;
+}
+
+.login-title{
+     font-family: 'Lobster';
+     padding-top: 50px;
+     font-size: 40px
 }
 
 .acound-box{
     padding: 10px 0px;
     background-color: #FBC02D;
-    width: 100%;
+    padding: 30px;
+}
+
+.loginbutton{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 30px;
 }
 
 .user-img{
