@@ -13,7 +13,7 @@
 
             $id = $result["opdrachgever_id"];
             //select opdracht gevers op id's die bij persoon horen
-            $sql = "SELECT * FROM opdrachtgevers WHERE id = $userid";
+            $sql = "SELECT * FROM opdrachtgevers WHERE id = $id";
             $results2 = $db->query($sql);
 
 

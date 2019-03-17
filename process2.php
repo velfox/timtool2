@@ -12,7 +12,7 @@ session_start();
     }
 
     $bestede_tijd_totaal = 0;
-    $sql = "SELECT * FROM besteding WHERE user_id = $userid AND opdrachtgever_id = 3";
+    $sql = "SELECT * FROM besteding WHERE user_id = $userid";
     $results2 = $db->query($sql);
     $totaal = "00:00:00";
     if ($results2->num_rows > 0) {  ?> 

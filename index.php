@@ -33,7 +33,7 @@
                 </section>
             </section>
         </section>
-        <!-- <section id="uren">
+        <section id="uren">
             <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> ⟲ Herladen </button> <button button class="bv" id="herlaadtabel"> 💾 save als PDF </button> 
             <button button class="bv" id="herlaadtabel"> < </button> <div class="maand" id="maand"> Maart 2019 </div> <button button class="bv" id="herlaadtabel"> > </button>  </section>
             <section id="uren-tabel" class="uren-tabel">
@@ -42,25 +42,36 @@
                 </section>
                 <table> <tr> <th> Urentotaal </th> </tr> <tr> <td> <?= $totaal ?> :   <?= $urentotaal ?> </td> </tr> </table>
             </section>
-        </section> -->
+        </section>
         <section id="uren">
             <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> toevoegen </button> <div class="maand" id="maand"> 💼 opdrachtgevers </div>  <button button class="bv" id="herlaadtabel"> verweideren </button> 
            </section>   
-                <section class="loginform">
-                    <form id="addopdrg" onsubmit="event.preventDefault();" enctype="multipart/form-data">
+                <section class="addopdrachtgever">
+                    <form id="addopdrg" enctype="multipart/form-data">
                             <label for="uname"><b> opdrachtgever naam </b></label>
-                            <input type="text" id="opdr-name" placeholder="opdrachtgever naam " name="gebruikersnaam" required>
+                            <input type="text" id="opdr-name" placeholder="opdrachtgever" name="opdrachtgever" required>
 
                             <label for="psw"><b> berschijfing </b></label>
-                            <input type="text" id="opdr-berschijfing" placeholder="berschijfing" name="wachtwoord" required>
+                            <input type="text" id="opdr-berschijfing" placeholder="berschijfing" name="berschijfing" required>
                                 
                             <label for="psw"><b> logo </b></label>
                             <input type="file" name="Logo Opdrachtgever" id="fileToUpload">
-                            <input type="submit" name="submit" value="Toevoegen"/>
+                            
+                            <section id="opdrachtgevertoevoegen">
+                                <div id="uploudopdrachtgeveruitvoeren"> toevoegen </div>
+                            </section>
                     </form>
+
+                    <section class="opdrachtgever" id="demobox">
+                        <section class="opdr-name" id="demobox-name"> zaalhetlokaal </section>
+                        <section class="opdr-beschijfing" id="logodemo" style="background-image: url(/attributes/img/logo/zaal.png);"> </section>
+                        <section class="opdr-disck2" id="demobox-beschrijfing"> lolwnee </section>      
+                    </section>
+
+
                 </section>
             </section>
-        </section>
+        </section> 
     </section>
 
     <!-- start setup timer -->
