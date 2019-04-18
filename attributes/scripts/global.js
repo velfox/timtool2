@@ -333,4 +333,16 @@ function loadTimer(){
         //end of function
       }
 
-   
+  // laden van blokken homepage user
+
+   function loadShowAddOpdrachtgever(){
+    var button = document.getElementById("button-opdrachtgever")
+    var yourUl = document.getElementById("selecteer-beschijfing");
+    yourUl.style.display = 'block';
+    var yourUl = document.getElementById("selecteer-opdrachtgever");
+    yourUl.style.display = 'none';
+   }
+
+   function loadShowTimeVieuwer(){
+    var button = document.getElementById("button-urenoverzicht")
+  }

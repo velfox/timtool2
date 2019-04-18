@@ -21,15 +21,15 @@
             <section id="acound-box">
                 <section class="acound-box"> 
                     <section class="user-img"></section>
-                    <section class="username"> 😃 Tim </section>
+                    <section class="username"> 😃 Tim </section><section class="username"> ⚙️ </section>
                     <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
                     <input type="submit" name="loguit" value="loguit"/>
                     </form>
                 </section>
-                <section class="settings-box">        
-                    <section class="setting-box"> <p class="big-icon">⚙️</p>Acount instellingen </section>
-                    <section class="setting-box big"> <p class="big-icon">➕ ⏱ </p> Nieuwe Timer </section>
-                    <section class="setting-box"> <p class="big-icon"> 💼 </p>  Beheer opdrachtgevers </section>
+                <section class="settings-box"> 
+                    <section id="button-urenoverzicht" class="setting-box"> <p class="big-icon">⏱</p> Uren overzicht </section>       
+                    <section id="button-newtimer" class="setting-box big"> <p class="big-icon">➕ ⏱ </p> Nieuwe Timer </section>
+                    <section id="button-opdrachtgever" class="setting-box"> <p class="big-icon"> 💼 </p>  Beheer opdrachtgevers </section>
                 </section>
             </section>
         </section>
