@@ -27,13 +27,13 @@
                     </form>
                 </section>
                 <section class="settings-box"> 
-                    <section id="button-urenoverzicht" class="setting-box"> <p class="big-icon">⏱</p> Uren overzicht </section>       
-                    <section id="button-newtimer" class="setting-box big"> <p class="big-icon">➕ ⏱ </p> Nieuwe Timer </section>
-                    <section id="button-opdrachtgever" class="setting-box"> <p class="big-icon"> 💼 </p>  Beheer opdrachtgevers </section>
+                    <section id="button-boxmenu-1" class="setting-box"> <p class="big-icon">⏱</p> Uren overzicht </section>       
+                    <section id="button-boxmenu-2" class="setting-box big"> <p class="big-icon">➕ ⏱ </p> Nieuwe Timer </section>
+                    <section id="button-boxmenu-3" class="setting-box"> <p class="big-icon"> 💼 </p>  Beheer opdrachtgevers </section>
                 </section>
             </section>
         </section>
-        <section id="uren">
+        <section class="main-options-box" id="urenoverzicht">
             <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> ⟲ Herladen </button> <button button class="bv" id="herlaadtabel"> 💾 save als PDF </button> 
             <button button class="bv" id="herlaadtabel"> < </button> <div class="maand" id="maand"> Maart 2019 </div> <button button class="bv" id="herlaadtabel"> > </button>  </section>
             <section id="uren-tabel" class="uren-tabel">
@@ -43,16 +43,16 @@
                 <table> <tr> <th> Urentotaal </th> </tr> <tr> <td> <?= $totaal ?> :   <?= $urentotaal ?> </td> </tr> </table>
             </section>
         </section>
-        <section id="uren">
-            <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> toevoegen </button> <div class="maand" id="maand"> 💼 opdrachtgevers </div>  <button button class="bv" id="herlaadtabel"> verweideren </button> 
+        <section class="main-opstions-box" id="addopdrachgever">
+            <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> toevoegen </button> <div class="maand" id="maand"> 💼 opdrachtgevers </div>  <button button class="bv" id="herlaadtabel"> verwijderen </button> 
            </section>   
                 <section class="addopdrachtgever">
                     <form id="addopdrg" enctype="multipart/form-data">
                             <label for="uname"><b> opdrachtgever naam </b></label>
                             <input type="text" id="opdr-name" placeholder="opdrachtgever" name="opdrachtgever" required>
 
-                            <label for="psw"><b> berschijfing </b></label>
-                            <input type="text" id="opdr-berschijfing" placeholder="berschijfing" name="berschijfing" required>
+                            <label for="psw"><b> beschrijving </b></label>
+                            <input type="text" id="opdr-berschijfing" placeholder="berschrijving" name="berschijfing" required>
                                 
                             <label for="psw"><b> logo </b></label>
                             <input type="file" name="Logo Opdrachtgever" id="fileToUpload">
