@@ -107,6 +107,7 @@
 
     <!-- start timer section -->
     <section id="s3" class="container">
+
         <div class="vhc2">
             <section id="timerbox" class="stopwatch timerbox">
                 <section class="row">
@@ -126,6 +127,9 @@
                         <button id="save-timer"> save </button>
                     </div>
                 </section>
+            </section>
+            <section class="settings-boxs-timer">        
+                <button id="close-timer"> ❌ ⏱  Sluit Timer </section>
             </section>
         </div>
     </section>

@@ -38,7 +38,7 @@ function loadTimer() {
         if (watch[n].isCounting) {
             watch[n].stop();
             toggelBtn.textContent = 'Start';
-            document.getElementById("timerbox").style.backgroundImage = "url('../attributes/img/loding.gif')";
+            document.getElementById("timerbox").style.backgroundImage = "url('../attributes/img/waiting.gif')";
         } else {
             watch[n].start();
             toggelBtn.textContent = 'Pauze';
@@ -62,11 +62,15 @@ function loadTimer() {
 
 //verander timer afbeelding
 function changeTimerImg(hetid) {
-    let discid = 'd' + hetid;
+
+    let discid = 'i' + hetid;
+    console.log("img change: " + discid)
     let disc = document.getElementById(discid);
     // set pad naar logo voor veranderen van logo timer
     let imgpad = disc.style.backgroundImage;
+    console.log(imgpad)
     document.getElementById("timerlogo").style.backgroundImage = imgpad;
+    console.log("img hier")
 }
 
 //set naam van de opdrachtgever
@@ -372,6 +376,7 @@ for (let i = 0; i < menuboxes.length; i++) {
     console.log(menuboxes[i]);
 }
 
+
 // function that show's and hide's the main menu bloks
 function switchMenuBox(event) {
     let id = event.currentTarget.id
@@ -420,6 +425,38 @@ function switchMenuBox(event) {
 
 }
 
+let closetimerbutton = document.getElementById('close-timer')
+closetimerbutton.addEventListener('click', closeTimer)
+
+function closeTimer(){
+    let box1 = document.getElementById('urenoverzicht');
+    let box2 = document.getElementById('s2');
+    let box3 = document.getElementById('addopdrachgever');
+    let mainbox = document.getElementById('s1');
+
+    let box1Button = document.getElementById('button-boxmenu-1');
+    let box2Button = document.getElementById('button-boxmenu-2');
+    let box3Button = document.getElementById('button-boxmenu-3');
+
+    let selecteeropdrachtgever = document.getElementById('selecteer-opdrachtgever');
+    let selecteerbeschijfing = document.getElementById('selecteer-beschijfing');
+    
+    selecteerbeschijfing.style.display = 'none';
+    box1.style.display = 'none';
+    box1Button.classList.remove("activebox");
+    box2.style.display = 'none';
+    box2Button.classList.remove("activebox");
+    box3.style.display = 'none';
+    box3Button.classList.remove("activebox");
+    mainbox.style.display = 'none';
+
+    document.getElementById("taskfieldform").reset();
+
+    mainbox.style.display = 'flex';
+    box1.style.display = 'block';
+    selecteeropdrachtgever.style.display = 'block';
+    box1Button.classList.add("activebox");
+}
 
 
 
@@ -455,3 +492,4 @@ function deleteOpdrachtgever(event) {
 
     xhr.send(params);
 }
+

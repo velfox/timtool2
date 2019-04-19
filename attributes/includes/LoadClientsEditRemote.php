@@ -35,7 +35,7 @@ if(isset($_SESSION["user"])){
                         <section class="opdr-name"> <?= $name ?> </section>
                         <section class="opdr-beschijfing" style="background-image: url(/attributes/img/logo/<?= $img ?>);"> </section>
                         <section class="opdr-disck2"> <?= $beschijfing ?> </section>
-                        <section class="deleteopdrgever" id="d<?= $idopdr ?>"> 🗑 Verweirderen  </section>
+                        <section class="deleteopdrgever" id="d<?= $idopdr ?>"> 🗑 Verwijderen  </section>
                     </section>
                 <?php }
 

@@ -98,6 +98,8 @@ function stopwacth(display, clientName, clientId) {
   
         xhr.onload = function(){
           console.log(this.responseText);
+          document.getElementById("timerbox").style.backgroundImage = "url('../attributes/img/saved.gif ')";
+          document.getElementById("timer").innerText = "Opgeslagen";
         }
   
         xhr.send(params);

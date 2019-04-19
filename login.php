@@ -20,13 +20,13 @@
                 <section class="acound-box"> 
                 <?php require_once "./attributes/includes/login.php"; ?>
                 </section>
-                <section class="settings-box">        
-
+                <section class="settings-box">   
+                    <br/> <br/>     
+                <img class="logo-timetool" src="attributes/img/timetool.svg" alt="">
                 </section>
             </section>
         </section>
-        <section id="uren"> 
-                <img class="logo-timetool" src="attributes/img/timetool.svg" alt="">
+        <section id="uren">
                 <img class="logo-timetool" src="attributes/img/beta.svg" alt="">
         </section>
 </body>

@@ -38,7 +38,15 @@ button{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 5px
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(119, 90, 45);
+    box-shadow: 1px 1px #888888;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.29);
+    color: #fff;
 }
 
 .bv{
@@ -50,7 +58,7 @@ button{
 }
 
 #timerlogo{
-    background-color: aquamarine;
+    background-color: #BDBDBD;
     background-position: center;
     background-repeat: none;
     background-size: contain;
@@ -466,7 +474,7 @@ table tr:nth-child(even) td{
 
 .logo-timetool{
     height: 400px;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 
 #logodemo2{
@@ -593,4 +601,23 @@ label {
 #fileToUpload{
     margin-top: 15px!important;
     margin-bottom: 15px!important;
+}
+
+.setting-box-timer{
+    background-color: #78909C;
+    width: 150px;
+    padding: 10px 0px;
+    margin: 10px auto;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
+    cursor: pointer;
+    transition: 0.8s all;
+}
+
+.settings-boxs-timer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
 }

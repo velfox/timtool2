@@ -27,7 +27,7 @@
                     ?>
                     <section class="opdrachtgever" id="<?= $idopdr ?>">
                         <section class="opdr-name" id="n<?= $idopdr ?>"> <?= $name ?> </section>
-                        <section class="opdr-beschijfing" id="d<?= $idopdr ?>"style="background-image: url(/attributes/img/logo/<?= $img ?>);"> </section>
+                        <section class="opdr-beschijfing" id="i<?= $idopdr ?>"style="background-image: url(/attributes/img/logo/<?= $img ?>);"> </section>
                         <section class="opdr-disck2" id="n<?= $idopdr ?>"> <?= $beschijfing ?> </section>
                         
                     </section>
