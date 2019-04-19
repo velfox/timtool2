@@ -103,9 +103,9 @@ document.getElementById("taskfield").addEventListener("change", showTaskDiscript
 
 
 let harlaadtabel = document.getElementById('herlaadtabel');
-harlaadtabel.addEventListener('click', loadingtabel);
+harlaadtabel.addEventListener('click', ReloudingloadingTabel);
 
-function loadingtabel() {
+function ReloudingloadingTabel() {
     console.log('ladan landcdnkdf');
     herlaadTabel(3);
 }
@@ -207,10 +207,53 @@ function doneUploudOpdrachtgever() {
 
     xhr.onload = function () {
         console.log(this.responseText);
+        herlaadOpdrachtGevers();
     }
 
     xhr.send(params);
 }
+
+function herlaadOpdrachtGevers(opdrid) {
+    console.log('herladen opdrachtgevers');
+    let opdrachtgeversedit = document.getElementById("opdrachtgevers-edit");
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'attributes/includes/LoadClientsEditRemote.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            opdrachtgeversedit.innerHTML = this.responseText;
+            list = document.getElementsByClassName("deleteopdrgever");
+            for (var i = 0; i < list.length; i++) {
+                list[i].addEventListener("click", deleteOpdrachtgever)
+            }
+        } else {
+            opdrachtgeversedit.innerHTML = "Error loading opdrachtgevers";
+        }
+    }
+
+    xhr.send();
+
+    let opdrachtgeversNewTimer = document.getElementById("opdrachtgeversNewTimer");
+
+    let xhr2 = new XMLHttpRequest();
+    xhr2.open('POST', 'attributes/includes/selectOpdrachtgeverRemote.php', true);
+    xhr2.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr2.onload = function () {
+        if (xhr2.status == 200) {
+            opdrachtgeversNewTimer.innerHTML = this.responseText;
+        } else {
+            opdrachtgeversNewTimer.innerHTML = "Error loading opdrachtgevers";
+        }
+    }
+
+    xhr2.send();
+
+    document.getElementById("addopdrg").reset();
+
+};
 
 //uploud only logo
 document.getElementById("fileToUpload").addEventListener("change", logoopdr);
@@ -290,7 +333,8 @@ function logoopdr() {
                         document.getElementById("logodemo").innerHTML = txt;
                         logoprevieuw.style.backgroundImage = "url(" + pad + ")";
                         demoboxImgWaarden = filenaampad;
-                        chekForUploudOpdrachtgever()
+                        chekForUploudOpdrachtgever();
+                        
                     } else {
                         document.getElementById("logodemo").innerHTML = "laden..";
                     }
@@ -320,10 +364,10 @@ function loadShowAddOpdrachtgever() {
 }
 
 // add click eventlistner to menu with main options
-let menuboxes = ["button-boxmenu-1","button-boxmenu-2","button-boxmenu-3"]
+let menuboxes = ["button-boxmenu-1", "button-boxmenu-2", "button-boxmenu-3"]
 
-for(let i=0;  i < menuboxes.length; i++){
-    let Clientbox = document.getElementById(''+menuboxes[i]+'');
+for (let i = 0; i < menuboxes.length; i++) {
+    let Clientbox = document.getElementById('' + menuboxes[i] + '');
     Clientbox.addEventListener('click', switchMenuBox)
     console.log(menuboxes[i]);
 }
@@ -332,36 +376,82 @@ for(let i=0;  i < menuboxes.length; i++){
 function switchMenuBox(event) {
     let id = event.currentTarget.id
     console.log("je klikte op " + event.target.id)
-    console.log("de listener hangt aan " + event.currentTarget.id) 
+    console.log("de listener hangt aan " + event.currentTarget.id)
 
+    // setup variables
     let box1 = document.getElementById('urenoverzicht');
     let box2 = document.getElementById('s2');
     let box3 = document.getElementById('addopdrachgever');
     let mainbox = document.getElementById('s1');
 
+    let box1Button = document.getElementById('button-boxmenu-1');
+    let box2Button = document.getElementById('button-boxmenu-2');
+    let box3Button = document.getElementById('button-boxmenu-3');
+
+    // show one of the sellected boxes
     if (id == 'button-boxmenu-1') {
         HideAllBoxes()
         mainbox.style.display = 'flex';
         box1.style.display = 'block';
+        box1Button.classList.add("activebox");
     } else if (id == 'button-boxmenu-2') {
         HideAllBoxes()
         box2.style.display = 'block';
+        box2Button.classList.add("activebox");
     } else if (id == 'button-boxmenu-3') {
         HideAllBoxes()
         mainbox.style.display = 'flex';
         box3.style.display = 'block';
+        box3Button.classList.add("activebox");
     } else {
         console.log("menu box item not found")
     }
 
-    function HideAllBoxes(){
+    // set all boxes to display none
+    function HideAllBoxes() {
         box1.style.display = 'none';
+        box1Button.classList.remove("activebox");
         box2.style.display = 'none';
+        box2Button.classList.remove("activebox");
         box3.style.display = 'none';
+        box3Button.classList.remove("activebox");
         mainbox.style.display = 'none';
     }
 
 }
 
 
-  // wissel tussen 
+
+
+// Delete option for the edit client list add clik function
+addEventListenerDeleteOprdGever()
+
+function addEventListenerDeleteOprdGever() {
+    window.onload = function () {
+        list = document.getElementsByClassName("deleteopdrgever");
+        for (var i = 0; i < list.length; i++) {
+            list[i].addEventListener("click", deleteOpdrachtgever)
+        }
+    }
+}
+
+
+// Delete option for the edit client list
+function deleteOpdrachtgever(event) {
+    let removeid = event.currentTarget.id
+    console.log(removeid)
+    removeid = removeid.substr(1);
+
+    console.log("remove in progress");
+    let params = "removeid=" + removeid;
+    console.log(params);
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'process6.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function () {
+        herlaadOpdrachtGevers();
+    }
+
+    xhr.send(params);
+}

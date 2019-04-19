@@ -21,9 +21,9 @@
             <section id="acound-box">
                 <section class="acound-box"> 
                     <section class="user-img"></section>
-                    <section class="username"> 😃 Tim </section><section class="username"> ⚙️ </section>
+                    <section class="small-button"> 😃 Tim ⚙️ </section>
                     <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
-                    <input type="submit" name="loguit" value="loguit"/>
+                    <input class="small-button" type="submit" name="loguit" value="loguit"/>
                     </form>
                 </section>
                 <section class="settings-box"> 
@@ -44,18 +44,22 @@
             </section>
         </section>
         <section class="main-opstions-box" id="addopdrachgever">
-            <section id="menu-uren" calss="uren-options"> <button id="herlaadtabel"> toevoegen </button> <div class="maand" id="maand"> 💼 opdrachtgevers </div>  <button button class="bv" id="herlaadtabel"> verwijderen </button> 
+            <section id="menu-uren" calss="uren-options"> <div class="maand" id="maand"> 💼 opdrachtgevers </div>  
            </section>   
                 <section class="addopdrachtgever">
                     <form id="addopdrg" enctype="multipart/form-data">
+                            <div class="form-text-box">
                             <label for="uname"><b> opdrachtgever naam </b></label>
                             <input type="text" id="opdr-name" placeholder="opdrachtgever" name="opdrachtgever" required>
-
-                            <label for="psw"><b> beschrijving </b></label>
+                            </div>
+                            <div class="form-text-box">
+                            <label for="psw"><b> beschrijving opdrachtgever </b></label>
                             <input type="text" id="opdr-berschijfing" placeholder="berschrijving" name="berschijfing" required>
-                                
-                            <label for="psw"><b> logo </b></label>
-                            <input type="file" name="Logo Opdrachtgever" id="fileToUpload">
+                            </div>
+
+                                <label for="psw"><b> logo </b>
+                                <input type="file" name="Logo Opdrachtgever" id="fileToUpload"></label>
+
                             
                             <section id="opdrachtgevertoevoegen">
                                 <div id="uploudopdrachtgeveruitvoeren"> toevoegen </div>
@@ -63,12 +67,15 @@
                     </form>
 
                     <section class="opdrachtgever" id="demobox">
-                        <section class="opdr-name" id="demobox-name"> zaalhetlokaal </section>
-                        <section class="opdr-beschijfing" id="logodemo" style="background-image: url(/attributes/img/logo/zaal.png);"> </section>
-                        <section class="opdr-disck2" id="demobox-beschrijfing"> lolwnee </section>      
+                        <section class="opdr-name" id="demobox-name"> VelFox </section>
+                        <section class="opdr-beschijfing" id="logodemo" style="background-image: url(/attributes/img/logo/velfox.png);"> </section>
+                        <section class="opdr-disck2" id="demobox-beschrijfing"> Voorbeeld </section>      
                     </section>
 
 
+                </section>
+                <section id= "opdrachtgevers-edit" class="opdrachtgevers">
+                    <?php require "./attributes/includes/LoadClientsEdit.php"; ?>
                 </section>
             </section>
         </section> 
@@ -82,8 +89,8 @@
                 <div class="title-box">
                     <p class="p1"> selecteer opdrachtgever </p>
                 </div>
-                <section class="opdrachtgevers">
-                    <?php require_once "./attributes/includes/selectopdrachtgever.php"; ?>
+                <section id="opdrachtgeversNewTimer" class="opdrachtgevers">
+                    <?php require "./attributes/includes/selectopdrachtgever.php"; ?>
                 </section>
             </section>
 

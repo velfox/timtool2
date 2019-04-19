@@ -98,6 +98,8 @@ button{
     text-align: center;
     transition: all 0.5s;
     box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
+    margin-top: 15px;
+    cursor: pointer;
 }
 
 .opdrachtgever:hover{
@@ -136,6 +138,7 @@ button{
 
 .opdrachtgevers{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
     height: fit-content;
@@ -381,7 +384,7 @@ table tr:nth-child(even) td{
     box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
 }
 
-.username{
+.small-button{
     background-color: #78909C;
     width: 150px;
     padding: 10px 0px;
@@ -390,12 +393,33 @@ table tr:nth-child(even) td{
     text-align: center;
     box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
     font-family: 'Lobster';
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 1s all;
+}
+
+.small-button:hover{
+    background-color: rgb(119, 90, 45);
+    box-shadow: 1px 1px #888888;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.29);
+    color: #fff;
 }
 
 .settings-box{
     display: flex;
     flex-direction: row;
 }
+
+.setting-box:hover{
+    padding-top: 3px;
+    background-color: rgb(119, 90, 45);
+    box-shadow: 1px 1px #888888;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.29);
+    color: #fff;
+}
+
+
 
 .setting-box{
     background-color: #78909C;
@@ -405,6 +429,16 @@ table tr:nth-child(even) td{
     border-radius: 4px;
     text-align: center;
     box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
+    cursor: pointer;
+    transition: 0.8s all;
+}
+
+.activebox{
+    padding-top: 3px;
+    background-color: rgb(119, 90, 45);
+    box-shadow: 1px 1px #888888;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.29);
+    color: #fff;
 }
 
 .big{
@@ -426,7 +460,6 @@ table tr:nth-child(even) td{
     margin: 10px 0px 10px 10px;
     border-radius: 4px;
     text-align: center;
-    box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
     font-family: 'Lobster';
     color: #fff;
 }
@@ -460,6 +493,7 @@ table tr:nth-child(even) td{
 
 #addopdrg{
     padding-right: 20px;
+    width: 90%
 }
 
 #opdrachtgevertoevoegen{
@@ -483,7 +517,9 @@ table tr:nth-child(even) td{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 5px
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1s all;
 }
 
 #uploudopdrachtgeveruitvoeren:hover{
@@ -497,16 +533,64 @@ table tr:nth-child(even) td{
 
 #addopdrachgever{
     display: none;
+    width: 70%;
 }
 
 label {
     background-color: #BDBDBD;
     width: 150px;
-    height: 150px;
+    height: 30px;
     padding: 8px 10px;
     margin: 8px 10px;
     border-radius: 4px;
     text-align: center;
     box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
     font-family: 'Lobster';   
+}
+
+.opdrachtgever-edit{
+    background-color: #BDBDBD;
+    font-size: 12pt;
+    width: 150px;
+    height: 230px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.5s;
+    box-shadow: 0px 13px 5px -9px rgba(0,0,0,0.29);
+    margin-top: 15px;
+}
+
+.deleteopdrgever:hover{
+    background-color: rgb(151, 29, 20);;
+    box-shadow: 1px 1px #888888;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.29);
+}
+
+.deleteopdrgever{
+    background-color: rgb(219, 71, 61);
+    border-radius: 4px;
+    padding: 5px 0px;
+    color: #fff;
+    margin-top: 5px;
+    transition: 1s all;
+    cursor: pointer;
+}
+
+#demobox{
+    margin-top: 0px;
+}
+.form-text-box{
+    display: flex;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+#s2 {
+    display: none;
+}
+
+#fileToUpload{
+    margin-top: 15px!important;
+    margin-bottom: 15px!important;
 }
