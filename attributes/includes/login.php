@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(isset($_SESSION['user'])){
+    exit(header("Location: /index.php"));
+}
+
 if (isset($_POST['submit'])) {
     require_once "./attributes/includes/db.php";
     $wachtwoord = mysqli_escape_string($db, $_POST['wachtwoord']);
@@ -27,6 +31,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['user'] = $gebruikersnaamps;
                 $_SESSION['id'] = $id;
                 $_SESSION['time_start_login'] = time();
+                exit(header("Location: /index.php"));
             } else {
                 $errors[] = 'wachtwoord gegevens klopppen niet.';
             }
@@ -37,34 +42,4 @@ if (isset($_POST['submit'])) {
     }
 } 
 
-if(isset($_SESSION['user'])){
-    header("location: index.php");
 
-?>
-    <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
-    <input type="submit" name="loguit" value="loguit"/>
-    </form>
-
-  <?php
-} else {
-?>
- <?php if (isset($errors) && !empty($errors)) { ?>
-    <ul class="errors">
-        <?php for ($i = 0; $i < count($errors); $i++) { ?>
-            <li><?= $errors[$i]; ?></li>
-        <?php } ?>
-    </ul>
-<?php } ?>
-
- <section class="loginform">
-    <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
-        <input class="login-form-username" type="text" placeholder="Enter Username" name="gebruikersnaam" required>
-
-        <input type="password" placeholder="Enter Password" name="wachtwoord" required>
-
-        <input class="loginbutton" type="submit" name="submit" value="Login"/>
-    </div>
-  </form>
- </section>
-
- <?php }?>

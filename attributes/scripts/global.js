@@ -206,7 +206,7 @@ function doneUploudOpdrachtgever() {
     let params = "demoboxNameWaarden=" + demoboxNameWaarden + "&demoboxBerschijfingWaarden=" + demoboxBerschijfingWaarden + "&demoboxImgWaarden=" + demoboxImgWaarden;
     console.log(params);
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'process5.php', true);
+    xhr.open('POST', 'processAddClient.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function () {

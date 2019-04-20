@@ -1,17 +1,4 @@
 <?php
-session_start();
-?>
-
-<?php
-// if(!isset($_SESSION['user'])){
-//     header("location: admin.php");
-// } else {
-//     if (isset($_POST['loguit'])) { 
-//         unset($_SESSION["user"]);
-//         session_destroy($_SESSION["user"]); 
-//         header("location: admin.php");
-//         session_destroy($_SESSION['time_start_login']);
-//     }
 
 if (isset($_POST['submit'])) {
     require_once "./attributes/includes/db.php";

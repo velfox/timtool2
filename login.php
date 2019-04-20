@@ -1,3 +1,4 @@
+<?php require_once "./attributes/includes/login.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,24 @@
             <section id="acound-box">
             <h1 class="login-title"> login page </h1>
                 <section class="acound-box"> 
-                <?php require_once "./attributes/includes/login.php"; ?>
+
+                    <?php if (isset($errors) && !empty($errors)) { ?>
+                        <ul class="errors">
+                            <?php for ($i = 0; $i < count($errors); $i++) { ?>
+                                <li><?= $errors[$i]; ?></li>
+                            <?php } ?>
+                        </ul>
+                    <?php } ?>
+                    <section class="loginform">
+                        <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
+                            <input class="login-form-username" type="text" placeholder="Enter Username" name="gebruikersnaam" required>
+
+                            <input type="password" placeholder="Enter Password" name="wachtwoord" required>
+
+                            <input class="loginbutton" type="submit" name="submit" value="Login"/>
+                        </div>
+                    </form>
+                    </section>
                 </section>
                 <section class="settings-box">   
                     <br/> <br/>     

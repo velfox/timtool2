@@ -1,3 +1,5 @@
+<?php require_once "./attributes/includes/loginchek.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +15,13 @@
 
 </head>
 
-<?php require_once "./attributes/includes/loginchek.php"; ?>
-
 <body>                   
     <section id="s1" class="container">
         <section id="acound">
             <section id="acound-box">
                 <section class="acound-box"> 
                     <section class="user-img"></section>
-                    <section class="small-button"> 😃 Tim ⚙️ </section>
+                    <section class="small-button"> 😃 <?= $_SESSION['user']; ?> ⚙️ </section>
                     <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
                     <input class="small-button" type="submit" name="loguit" value="loguit"/>
                     </form>
